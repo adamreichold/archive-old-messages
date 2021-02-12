@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Archive old messages",
     "description": "A context menu item to archive all messages than older than a given duration.",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "author": "Adam Reichold",
     "applications": {
         "gecko": {
@@ -18,6 +18,7 @@
     },
     "permissions": [
         "menus",
+        "accountsRead",
         "messagesRead",
         "messagesMove"
     ]
