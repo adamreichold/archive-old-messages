@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Archive old messages",
+    "description": "A context menu item to archive all messages than older than a given duration.",
+    "version": "0.1",
+    "author": "Adam Reichold",
+    "applications": {
+        "gecko": {
+            "id": "archive-old-messagesr@adamreichold.de",
+            "strict_min_version": "78.0",
+            "strict_max_version": "78.*"
+        }
+    },
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "permissions": [
+        "menus",
+        "messagesRead",
+        "messagesMove"
+    ]
+}
