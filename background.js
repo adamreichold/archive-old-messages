@@ -18,7 +18,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
 async function* walkList(page) {
-    yield page.messages;
+    if (page.messages.length != 0) {
+        yield page.messages;
+    }
 
     while (page.id) {
         page = await browser.messages.continueList(page.id);
