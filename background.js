@@ -42,7 +42,9 @@ async function archiveOlderThan(folder, toDate) {
     });
 
     for await (const messages of walkList(page)) {
-        await browser.messages.archive(messages);
+        const messageIds = messages.map(message => message.id);
+
+        await browser.messages.archive(messageIds);
     }
 }
 
@@ -51,7 +53,7 @@ browser.menus.create({
     title: "Archive older than one year",
     contexts: ["folder_pane"],
     async onclick(info) {
-        let toDate = Date.now();
+        let toDate = new Date();
         toDate.setFullYear(toDate.getFullYear() - 1);
 
         await forEachSubFolder(info.selectedFolder, folder => archiveOlderThan(folder, toDate));
